@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string.html</title>
+</head>
+<body>
+    <script>
+        var str = "please locate where 'locate'occurs"; //문자열안에 문자 넣을때 ''사용
+        str.length;
+        var pos = str.indexOf('locate'); //locate 몇번째 부터 시작하는지 없으면 결과값이 -1나온다
+        pos = str.lastIndexOf('locate'); //끝에서 나오는 locate 시작 위치
+        console.log(pos)
+        // slice, substring, substr, toUpperCase, toLowerCase, concat
+        console.log(str.slice(7,13)); //7포함 13번째 앞자리 까지 읽는다.
+        console.log(str.substring(7,13));//시작과 끝을 정해 그 부분을 가져온다.
+        console.log(str.substr(7,6).toUpperCase());//시작에서 지정해준 길이만큼 가져온다. 
+    </script>
+</body> 
+</html>

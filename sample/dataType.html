@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataType</title>
+</head>
+
+<body>
+    <script>
+        var length88;
+        var childYear = 7;
+        var isTrue = false;
+        console.log(typeof isTrue);
+
+        var friend = {
+            firstName: "gildong",
+            lastName: "Hong",
+            age: 16,
+            getFullName: function () 
+                { return this.firstName + "," + this.lastName }
+        }
+        for(field in friend){
+             //in은 필드 내용 가지고 온다, of는 배열의 요소를 가져 온다.
+            console.log(field+","+friend[field]); //해당하는 값을 가져올때 [] 사용 해서 가져온다/.        
+        }
+        console.log(friend.firstName + "," + friend.lastName);
+        console.log(friend["firstName"] + "," + friend["lastName"]);
+        console.log(friend.getFullName());
+
+
+        function getName() {
+            return "Haseungcheol"
+        }
+        function sum(a, b) {
+            return a + b;
+        }
+        console.log(getName());
+        console.log("결과는" + sum(10, 20));
+
+        var numAry = [1,2,3,4,5];
+        var strAry = ["Hello","nice","good"]
+
+        for(var i=0; i<strAry.length; i++){
+            console.log(strAry[i])
+        }
+        var friend1 = {
+            firstName: "gildong",
+            lastName: "Hong",
+            age: 16,
+        }
+            var friend2 = {
+            firstName: "seongwoo",
+            lastName: "kim",
+            age: 26,
+            }
+            var friend3 = {
+            firstName: "junwon",
+            lastName: "Ha",
+            age: 36,
+            }
+
+            var friends = [friend1, friend2, friend3];
+            for(obj of friends){  //of는 배열의 요소를 가져 온다.
+                console.log(obj);
+            }
+    </script>
+</body> 
+
+</html>

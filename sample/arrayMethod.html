@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrayMethod.html</title>
+</head>
+<body>
+    <p id ="show"></p>
+    <script>
+        var fruits = ["Banana","Orange","Apple", "Mango"];
+        document.getElementById("show").innerHTML = fruits.join("-");
+
+        //pop(제일 마지막꺼 뻄), push(제일 뒤에 추가), shift(앞에서 부터 뺌), unshift(맨 앞에추가)
+        fruits.push("Kiwi");
+        fruits.unshift("Grape");
+        fruits.pop();
+        fruits.shift();
+        document.getElementById("show").innerHTML = fruits.join("-");
+
+        var newFruits = ["Banana","Orange","Apple", "Mango"];
+        newFruits.sort();
+        newFruits.reverse(); //sort부터해야지 내림차순 가능하다
+        console.log(newFruits)
+
+        var numbers = [1, 22, 10, 100, 45];
+        numbers.sort(function(a,b){   //숫자열로 하기위해 function사용
+            return a - b; //값이 마이너스이면 오름차순
+        });
+        console.log(numbers); //문자열로 읽어서 앞자리 1 부터 온다
+
+        var persons = [
+            {name:"Hong", age:10},
+            {name:"Bak", age:25},
+            {name:"Bak", age:20},
+            {name:"Chol", age:30}
+
+        ]
+        persons.sort(function(a, b) { //결과값이 오름차순 : 음순, 내림차순: 양수 
+            if(a.name > b.name){
+                return 1;
+            }else if (a.name < b.name){
+                return -1;
+            }else {
+                return a.age - b.age;
+            }
+        });
+        console.log(persons);
+    </script>
+</body> 
+</html>
