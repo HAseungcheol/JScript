@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <input type="text" name="firstName" id="firstName" value="gildong">
+    <input type="text" name="lastName" id="lastName" value="Hong">
+    <input type="text" name="age" id="age" value="16">
+    <button id="btn" onclick="translateBtn()">Click</button>
+    <table id="tbl" border="1">
+        <tbody>
+            <tr>
+                <td>firstName</td>
+                <td>lastName</td>
+                <td>age</td>
+            </tr>
+
+            <tr>
+                <td>gildong</td>
+                <td>Hong</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>junwon</td>
+                <td>Ha</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>jaeeon<p>firstname</p></td>
+                <td>Yun</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var tds = document.getElementsByTagName("td");
+        console.log(tds[9].childNodes[1].childNodes[0].nodeValue);
+        var btn = document.getElementById("btn");
+        btn.onmouseover = function(){
+           this.style.background = "yellow";
+            this.style.width = "100px";
+        }
+        btn.onmouseout = function(){
+            this.style.background = "";
+            this.style.width = "50px";
+        }
+        function translateBtn(){
+            var na =  document.getElementById("firstName").value;
+            var na1 = document.getElementById("lastName").value;
+            var na2= document.getElementById("age").value;
+            tds[3].childNodes[0].nodeValue=na;
+            tds[7].childNodes[0].nodeValue=na1;
+            tds[11].childNodes[0].nodeValue=na2;
+            tds[3].style.background = "red";
+            tds[7].style.background = "red";
+            tds[11].style.background = "red";
+        }
+        
+    </script>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <button id="btn" onclick="addrList()">Click</button>
+    <table id="tbl" border="1">
+        <tbody>
+            <tr>
+                <td>name</td>
+                <td>phone</td>
+                <td>age</td>
+            </tr>
+      
+    </table>
+
+    <script>
+    var tbl = document.getElementById("td");
+    var addrList=[
+       {name:"Hong",phone:"1212-1212",age:20},
+       {name:"Kim",phone:"1234-4567",age:23},
+       {name:"Ha",phone:"3434-4512",age:25},
+       {name:"Lee",phone:"1287-5858",age:27}
+   ]
+   var $titles = ["name","phone","age"]; //값이 순서대로 나오게 고정시켜주기 위해서 사용
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+        var tbl = document.getElementById("tbl");
+        var $text, $td, $tr;
+        addrList.forEach(function(o,i) {
+            $tr = document.createElement("tr");
+            for(field of $titles){
+                $text = document.createTextNode(o[field]); //o 오브젝트(한개 한개씩), i 인덱스 a행전체
+                $td = document.createElement("td");
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            tbl.appendChild($tr); //<table><tr>...</tr></table> 한번 돌았을때
+        })
+    }
+   
+//Json.parse는 문자열을 필드값 순서에 맞춰서 보여준다
+//Json.stringify 다시 문자열 바꾸는거
+        
+    </script>
+</body>
+</body>
+
+</html>

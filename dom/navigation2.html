@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <input type="text" name="firstName" id="firstName" value="gildong">
+    <input type="text" name="lastName" id="lastName" value="Hong">
+    <input type="text" name="age" id="age" value="16">
+    <button id="btn" onclick="translateBtn()">Click</button>
+    <table id="tbl" border="1">
+        <tbody>
+            <tr>
+                <td>firstName</td>
+                <td>lastName</td>
+                <td>age</td>
+            </tr>
+
+            <tr>
+                <td>gildong</td>
+                <td>Hong</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>junwon</td>
+                <td>Ha</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>jaeeon<p>firstname</p></td>
+                <td>Yun</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+       var tds = document.querySelectorAll("#tbl tr")
+         console.log(tds);
+         
+         tds.forEach(function(a,b){ //forEach 각각의 이벤트를 걸어 줄때 사용
+            console.log(a)
+            a.onmouseover = function(){
+                this.style.background = "green";
+            }
+            a.onmouseout = function() {
+                this.style.background = "";
+            }
+            a.onclick = function(){
+                alert(this.childNodes[1].childNodes[0].nodeValue);
+            }
+         })
+       
+        
+    </script>
+</body>
+</body>
+
+</html>
