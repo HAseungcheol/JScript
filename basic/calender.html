@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크립트를 이용한 테이블 만들기</title>
+</head>
+
+<body>
+    <input type="text" id="year">
+    <input type="text" id="month">
+    <button id="btn">Create Calendar</button>
+    <script>
+        //Example (날짜)
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var y = document.getElementById('year').value;
+            var m = document.getElementById('month').value;
+            createCal(y, m)
+        }
+
+        function createCal(y, m) {
+            //화면 clear
+            var tbl = document.getElementsByTagName("table");
+            if (tbl && tbl.length > 0) {
+                tbl[0].remove();
+            }
+
+            var year = parseInt(y);
+            var month = parseInt(m);
+            var dday = new Date(year, month, 0);
+            var tday = new Date(year, month - 1, 1);
+
+            var days = ["일", "월", "화", "수", "목", "금", "토"]
+            var $table = document.createElement("table")
+            $table.setAttribute("border", 1);
+            var $tr = document.createElement("tr")
+            days.forEach(function (a, b) {
+                var $td = document.createElement("td");
+                if (b == 0) {
+                    $td.style.background = "red";
+                    $td.style.color = "white";
+                }
+                if (b == 6) {
+                    $td.style.background = "blue";
+                    $td.style.color = "white";
+                }
+                var $text = document.createTextNode(a);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            });
+            $table.appendChild($tr);
+            //첫째 날, 월요일 지정하기
+            $tr = document.createElement("tr");
+            var nullDay = tday.getDay(); //일(0)~토(6)
+            for (var i = 0; i < nullDay; i++) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode("");
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            //31일 까지 나오도록 (7일 단위)
+            var totalDay = dday.getDate();
+            for (var i = 1; i <= totalDay; i++) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(i);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+                if ((i + nullDay) % 7 == 1) {
+                    $td.style.background = "red";
+                    $td.style.color = "white";
+                }
+                if ((i + nullDay) % 7 == 0) {
+                    $td.style.background = "blue";
+                    $td.style.color = "white";
+                }
+                if ((i + nullDay) % 7 == 0) {
+                    $table.appendChild($tr); // 1~7일 출력
+                    $tr = document.createElement("tr");
+                }
+            }
+            $table.appendChild($tr); // 29, 30, 31일 출력
+            document.body.appendChild($table);
+        }        
+    </script>
+</body>
+
+</html>
